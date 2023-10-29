@@ -1,5 +1,3 @@
-const { json } = require("express");
-
 const form=document.getElementById("upload2");
 let inputNum=document.getElementById("phone");
 let patternPhon=new RegExp("\\d|\\.");
