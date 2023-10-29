@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--favicon(that small icon above tab)-->
+    <title>Let's Play</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/components/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/components/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/components/favicon-16x16.png">
+    <link rel="manifest" href="/components/site.webmanifest">
+    <link rel="stylesheet" href="login.css">
+    
+</head>
+
+<body>
+
+    <!--navigation bar of page-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="\index.html">
+            <img src="\components\Heading(1).jpg" width="60" height="60" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="\index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\project2.html">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Event
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="\instantStart.html">Instant Start</a>
+                        <a class="dropdown-item" href="#">Organiztion</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Live Events</a>
+                    </div>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Match,locations...." aria-label="Search" id="searchbox">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+            </form>
+        </div>
+    </nav> 
+    <div class="box" id="box" style="display: block;"> 
+        <!-- <form action="instant.php" method="post" onsubmit="return validateForm()"> -->
+            <form id="upload2">
+            <span class="text-center">Log-in</span>
+            <div class="input-container">
+                <input type="tel" id="phone" required="" />
+                <label for="phone">Phone.no</label>
+                <span>+91</span>
+                <p class="pops" id="errorMessage1"></p>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" required="" />
+                <label for="password">Password</label>
+                <p class="pops" id="errorMessage2"></p>
+            </div>
+            <button type="submit" class="btn">Log-in</button>
+            <div class="login" id="login">
+                <a href="\instant">Don't have account? Sign-up</a>
+            </div>
+        </form>
+    </div>
+    <div class="profile" id="profile" style="display: none;">
+          <div class="pfp">
+            <p id="username"></p>
+    </div>
+    <div class="dropbox">
+        <form id="gameform">
+            <p class="pops2" id="Message"></p>
+            <p class="pops3" id="Message2"></p>
+            <div class="dropdown">
+            <label for="play">Game</label>
+            <select id="play">
+                <option value="Box Cricket">Box Cricket</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Football">Football</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Cycling">Cycling</option>
+            </select>
+            </div>
+            <div class="dropdown">
+            <label for="players">Required Players</label>
+            <select id="players">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <label for="location">Location</label>
+            <select id="location">
+                <option value="Chembur">Chembur</option>
+                <option value="Kurla">Kurla</option>
+                <option value="Ghatkoper">Ghatkoper</option>
+                <option value="Dadar">Dadar</option>
+                <option value="Vashi">Vashi</option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <label for="date">Held On</label>
+            <input id="date" type="date">
+        </div>
+        <button type="submit" class="create" id="create" value=0>Create</button>
+           </form>
+        </div>
+        <div class="tophead">
+            <h4>Scheduled</h4>
+        <div class="info"> 
+            <p id="gameI">No game as been found</p>
+            <p id="playersI"></p>
+            <p id="locationI"></p>
+            <p id="dateI"></p>
+            <button id="edit" class="edit">🪛Edit</button>
+        </div>
+        <div>
+            <p>No game as been found</p></div>
+        </div>
+    <script src="login.js"></script>  
+</body>
+
+</html>
