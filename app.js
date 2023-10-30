@@ -9,6 +9,10 @@ const PORT=process.env.PORT||8080;
 
 app.use(express.static(path.join(__dirname,'/public')))
 
+app.get('^/$|/searchnull(.html)?',(req,res)=>{
+  res.sendFile(path.join(__dirname,'views','searchFail.html'));
+});
+
 app.get('^/$|/index(.html)?',(req,res)=>{
   res.sendFile(path.join(__dirname,'views','index.html'));
 });
@@ -19,9 +23,9 @@ app.get('/instant(.html)?',(req,res)=>{
 app.get('/login(.html)?',(req,res)=>{
   res.sendFile(path.join(__dirname,'views','Login.html'));
 });
-app.post("/serach",async(res,req)=>{
-  const {Find}=req.body
-  const pass=await search(Find)
+app.post("/search",async(req,res)=>{
+  const {PROP}=req.body
+  const pass=await search(PROP)
   if(pass==false){
     return res.json({info:false})
   }

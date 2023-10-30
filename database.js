@@ -62,7 +62,7 @@ const getGinfo=async (id)=>{
    }
 }
 const search=async(Find)=>{
-   let[rows]=await pool.query(`SELECT * FROM games WHERE Location=? OR Game=?`,[Find])
+   let[rows]=await pool.query(`SELECT * FROM games WHERE Location=? OR Game=?`,[Find,Find])
    if(rows.length==0){
       return false;
    }
