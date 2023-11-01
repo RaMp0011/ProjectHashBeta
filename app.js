@@ -4,13 +4,20 @@ const app=express()
 const path=require("path");
 const bcrypt=require('bcrypt');
 const { LOADIPHLPAPI } = require('dns');
+const url=require('url')
 app.use(express.json())
 const PORT=process.env.PORT||8080;
 
 app.use(express.static(path.join(__dirname,'/public')))
 
-app.get('^/$|/searchnull(.html)?',(req,res)=>{
+app.get('/searchnull(.html)?',(req,res)=>{
   res.sendFile(path.join(__dirname,'views','searchFail.html'));
+});
+
+app.get('/search:id',(req,res)=>{
+  const id=req.query.id
+  console.log(id)
+  res.sendFile(path.join(__dirname,'views','search.html'));
 });
 
 app.get('^/$|/index(.html)?',(req,res)=>{

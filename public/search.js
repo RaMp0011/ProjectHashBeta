@@ -14,6 +14,9 @@ search.addEventListener("click", async(e)=>{
         window.location.replace("http://localhost:8080/searchnull")
     }
     else{
-        window.location.replace("http://localhost:8080/search")
+        window.location.replace(`http://localhost:8080/search?id=${find}`)
+        // console.log(58)
+        // // document.getElementById('udate').innerHTML="78"
+        
     }
 })
