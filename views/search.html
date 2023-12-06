@@ -59,41 +59,48 @@
             </form>
         </div>
     </nav>
-    
 <div class="container">
-<div class="profile-box " id="box-1">
+<div class="profile-box " id="box-1" style="display: none;">
     <img src="\components\userico.png" class="profile-pic">
-    <h3 id="uname">ayush shukla</h3>
+    <h5 id="uname1">ayush shukla</h5>
     <div class="profile-bottom">
-        <h5 id="ugame">Game</h5>
-        <h5 id="ulocation">Location</h5>
-        <h5 id="udate1">Date</h5>
-        <img src="\components\add.png" class="add" alt="Send a request masseage">
-        <div class="hover">To join</div>
+        <p id="ugame1">Game</p>
+        <p id="ulocation1">Location</p>
+        <p id="udate1">Date</p>
+        <p id="contect1"></p>
+        <p id="mess1"></p>
+        <img src="\components\add.png" class="add" alt="Send a request masseage" id="join1">
+        <div class="hover" id="hover1">To join</div>
         </div>
 </div>
-<div class="profile-box" id="box-2">
+<div class="profile-box" id="box-2" style="display: none;">
     <img src="\components\userico.png" class="profile-pic">
-    <h3 id="uname">ayush shukla</h3>
+    <h5 id="uname2">ayush shukla</h5>
     <div class="profile-bottom">
-        <h5 id="ugame">Game</h5>
-        <h5 id="ulocation">Location</h5>
-        <h5 id="udate2">Date</h5>
-        <img src="\components\add.png" class="add" alt="Send a request masseage">
-        <div class="hover">To join</div>
+        <p id="ugame2">Game</p>
+        <p id="ulocation2">Location</p>
+        <p id="udate2">Date</p>
+        <p id="contect2"></p>
+        <p id="mess2"></p>
+        <img src="\components\add.png" class="add" alt="Send a request masseage" id="join2">
+        <div class="hover" id="hover2">To join</div>
         </div>
 </div>
-<div class="profile-box" id="box-3">
+<div class="profile-box" id="box-3" style="display: none;">
     <img src="\components\userico.png" class="profile-pic">
-    <h3 id="uname">ayush shukla</h3>
+    <h5 id="uname3">ayush shukla</h5>
     <div class="profile-bottom">
-    <h5 id="ugame">Game</h5>
-    <h5 id="ulocation">Location</h5>
-    <h5 id="udate3">Date</h5>
-    <img src="\components\add.png" class="add" alt="Send a request masseage">
-    <div class="hover">To join</div>
+    <p id="ugame3">Game</p>
+    <p id="ulocation3">Location</p>
+    <p id="udate3">Date</p>
+    <p id="contect3"></p>
+    <p id="mess3"></p>
+    <img src="\components\add.png" class="add" alt="Send a request masseage" id="join3">
+    <div class="hover" id="hover3">To join</div>
     </div>
 </div>
+</div>
+<div id="ovrly"></div>  
 
 <!-- </div>
 <div class="container">
@@ -129,6 +136,69 @@
     </div>
     
     </div> -->
+    
+    <div class="box" id="box" > 
+        <button id="cross">&cross;</button>
+        <!-- <form action="instant.php" method="post" onsubmit="return validateForm()"> -->
+            <form id="upload2">
+            <span class="text-center">Log-in</span>
+            <div class="input-container">
+                <input type="tel" id="phone" required="" />
+                <label for="phone">Phone.no</label>
+                <span>+91</span>
+                <p class="pops" id="errorMessage1"></p>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password" required="" />
+                <label for="password">Password</label>
+                <p class="pops" id="errorMessage2"></p>
+            </div>
+            <button type="submit" class="btn">Log-in</button>
+            <div class="login" id="Sign-up">
+                <a>Don't have account? Sign-up</a>
+            </div>
+        </form>
+    </div>
+    <div class="box2" id="box2">
+        <!-- <form action="instant.php" method="post" onsubmit="return validateForm()"> -->
+            <form id="upload1">
+            <span class="text-center">Sign-up</span>
+            <div class="input-container">
+                <input type="text" id="name" required="" />
+                <label for="name">Full Name</label>
+                <p id="errorMessage1"></p>
+            </div>
+            <div class="input-container">
+                <input type="tel" id="phone2" required="" />
+
+                <label for="phone2" >Phone.no</label>
+                <span>+91</span>
+                <p id="errorMessage2"></p>
+            </div>
+            <div class="input-container">
+                <input type="mail" id="email" required="" />
+                <label for="email">Email</label>
+                <p id="errorMessage3"></p>
+            </div>
+            <div class="input-container">
+                <input type="password" id="password2" required="" />
+                <!-- <img src="\components\eye-close.png"> -->
+                <label for="password2">Password</label>
+                <p id="errorMessage4" style="color: rgb(238, 238, 78)">Minimum eight characters, at least one letter,<br> one number and one special character</p>
+            </div>
+            <div class="input-container">
+                <input type="password" id="Cpassword" required="" />
+                <label for="Cpassword">Confirm Password</label>
+                <p id="errorMessage5"></p>
+            </div>
+            <button type="submit" class="btn">Sign-up</button>
+            <div class="login" id="login">
+                <a>Already Sign-uped? Log-in</a>
+            </div>
+        </form>
+    </div>
     <script src="search.js"></script>
+    <script src="display.js"></script>
+  
 </body>
 </html>

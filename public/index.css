@@ -1,0 +1,144 @@
+body{
+    background-image: url(/components/background.png);
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:200vh;
+	font-family: 'Noto Sans', sans-serif;
+}
+.weather{
+    width:50%;
+	max-width: 470px;
+    /* opacity: 0.7; */
+	text-align: center;
+	padding: 20px 80px;
+	color: #fff;
+	position: relative;
+	border-radius: 20px; 
+	margin: 100px auto 0;
+	padding:40px 35px;
+	/* margin-left: 8px; */
+    left:30%;
+    top:10px;
+	border-top:solid 1px ;
+	border-bottom: solid 1px;
+}
+
+.weather-icon{
+	width: 170px;
+	margin-top: 30px;
+}
+.weather h1{
+	font-size:80px;
+	font-weight: 500;
+}
+.weather h2{
+	font-size:45px;
+	font-weight: 400;
+	margin-top: -5;
+}
+.detail{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	margin-top: 50px;
+}
+.col{
+	display: flex;
+	align-items: center;
+	text-align: left;
+}
+.col img{
+	width:40px;
+	margin-top:10px ;
+}
+.humidity,.wind,.cloud{
+	font-size:25px;
+	margin-top: -6px;
+}
+.title h1{
+	color:aquamarine;
+	text-align: center;
+	margin-left: 150px;
+}
+.access{
+	background-color: blueviolet;
+	color: white;
+	position: relative;
+	width:30%;
+	border-radius: 20px;
+	padding: 30px;
+	top:1px;
+}
+.container2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+  }
+  
+  .radio-tile-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+  }
+  
+  .input-container {
+	position: relative;
+	height: 7rem;
+	width: 7rem;
+	margin:0 8rem;
+  }
+  
+  .input-container input {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	cursor: pointer;
+	z-index: 2;
+	opacity: 0;
+  }
+  
+  .input-container .radio-tile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	border: 2px solid var(--primary-color);
+	border-radius: 8px;
+	transition: all 300ms ease;
+  }
+  
+  .input-container ion-icon {
+	color: var(--primary-color);
+	font-size: 3rem;
+  }
+  
+  .input-container label {
+	color: whitesmoke;
+	font-size: 2rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+  }
+  
+  input:checked+.radio-tile {
+	background-color: var(--primary-color);
+	box-shadow: 0 0 12px var(--primary-color);
+	transform: scale(1.1);
+  }
+  
+  input:hover+.radio-tile {
+	box-shadow: 0 0 12px var(--primary-color);
+  }
+  
+  input:checked+.radio-tile ion-icon,
+  input:checked+.radio-tile label {
+	color: rgb(251, 46, 46);
+  }

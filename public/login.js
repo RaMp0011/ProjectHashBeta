@@ -87,18 +87,22 @@ const sendInfo= async()=>{
         document.getElementById("password").style.borderColor = "green";
         document.getElementById("errorMessage2").innerHTML ="Succesfully loged-in";  
         rep(json.entry);
+        gamecheck(json.entry.Phone)
     }
 
 }
 const rep=async(pass)=>{
+   
     details(pass.ID);
     var div=document.getElementById('box');
     var div2=document.getElementById('profile');
     div.style.display='none';
     div2.style.display='block';
     var body=document.getElementsByTagName('body')[0];
-    body.style.backgroundImage='url(/components/profile.jpg)';
-    document.getElementById('username').innerHTML=`Welcome, ${pass.Name}!`;
+    body.style.backgroundImage='url(/components/messi.jpg)';
+    document.getElementById('name').innerHTML=`Welcome, ${pass.Name}!`;
+    document.getElementById('phone').innerHTML=`${pass.Phone}!`;
+    document.getElementById('email').innerHTML=`${pass.Email}`;
     const form=document.getElementById("gameform");
     form.addEventListener('submit',(e)=>{
         const temp=parseInt(document.getElementById("create").value);
@@ -145,10 +149,15 @@ const details=async(id)=>{
         document.getElementById('gameI').innerHTML="No event as been found"
     }
     else{
-    document.getElementById('gameI').innerHTML=`Game - ${json.back.Game}`;
-    document.getElementById('playersI').innerHTML=`Required Players - ${json.back.PlayerCount}`;
-    document.getElementById('locationI').innerHTML=`Location - ${json.back.Location}`;
-    document.getElementById('dateI').innerHTML=`On - ${json.back.HeldOn}`;
+        console.log(json.back)
+    document.getElementById('infod').style.display="block";
+    document.getElementById('gamein').innerHTML="";
+    document.getElementById('gameI').innerHTML=`${json.back.Game}`;
+    document.getElementById('playersI').innerHTML=`${json.back.PlayerCount}`;
+    document.getElementById('locationI').innerHTML=`${json.back.Location}`;
+    document.getElementById('dateI').innerHTML=`${json.back.HeldOn}`;
+    requestP(id);
+   
     }
  const edit=document.getElementById('edit');
 edit.addEventListener('click',()=>{
@@ -158,9 +167,109 @@ edit.addEventListener('click',()=>{
     document.getElementById('date').value=json.back.HeldOn;
     document.getElementById('create').innerHTML="Edit";
     document.getElementById('create').value=1;
-})
-
 }
+)}
+const requestP=async(id)=>{
+    let temp=6;
+    while(temp){
+        document.getElementById(`reqlist${temp}`).style.display="none";
+        temp--; 
+    }
+    let info=JSON.stringify({ID:id});
+    const response=await fetch('http://localhost:8080/requestP',{
+        method:"POST",
+        body: info,
+        headers:{'Content-Type':'application/json'}
+    })
+    const json=await response.json()
+    if(json.info==false){
+        document.getElementById('norequest').innerHTML="no request"
+    }
+    else{
+        document.getElementById('norequest').innerHTML="";
+        let count=json.info.length;
+        while(count){
+            let content=json.info[count-1];
+           document.getElementById(`reqlist${count}`).style.display="block";
+           document.getElementById(`rename${count}`).innerHTML=`${content.Name}`;
+           document.getElementById(`phone${count}`).innerHTML=`${content.Phone}`;
+           count--;
+        }
+        const idk=async(key,pas,json1)=>{
+            console.log(json1)
+            let phone=json1.info[key-1].Phone;
+            let name=json1.info[key-1].Name;
+            let id=json1.info[key-1].ID;
+            let info=JSON.stringify({ID:id,Name:name,Phone:phone,Pas:pas});
+            const response=await fetch('http://localhost:8080/requestA',{
+            method:"POST",
+            body: info,
+            headers:{'Content-Type':'application/json'}
+        })
+        const json= await response.json();
+        if(json.info){
+            requestP(id);
+            details(id);
+        }
+        else{
+           document.getElementById.innerHTML="Exceeding required players limit!" 
+        }
+        }
+        let k=document.getElementById('accept1');
+        // k.addEventListener('click',idk(1,1,json))
+        k.addEventListener('click',()=>{idk(1,1,json)})
+        document.getElementById('accept2').addEventListener('click',()=>{idk(2,1,json)});
+        document.getElementById('accept3').addEventListener('click',()=>{idk(3,1,json)});
+        document.getElementById('accept4').addEventListener('click',()=>{idk(4,1,json)});
+        document.getElementById('accept5').addEventListener('click',()=>{idk(5,1,json)});
+        document.getElementById('accept6').addEventListener('click',()=>{idk(6,1,json)});
+    }
+}
+const gamecheck=async(phone)=>{
+    let info=JSON.stringify({Phone:phone});
+    const response=await fetch('http://localhost:8080/gamecheck',{
+        method:"POST",
+        body: info,
+        headers:{'Content-Type':'application/json'}
+    })
+    const json=await response.json()
+    if(json.info==false){
+        console.log("aayi");
+        document.getElementById('infocc').innerHTML="You haven't participated"
+    }
+    else{
+        let count=json.info.length;
+        let temp=1;
+        while(count){
+        document.getElementById(`gamecc${temp}`).style.display="block";
+        let content=json.info[count-1];
+        document.getElementById(`gamek${temp}`).innerHTML=`${content.Game}`
+        document.getElementById(`schedule${temp}`).innerHTML=`${content.HeldOn}`
+        document.getElementById(`organizer${temp}`).innerHTML=`${content.Location}`
+        count--;
+        temp++;
+        }
+  
+    }
+    // if{
+    //     let temp=json.info.length;
+    //     temp=getElementById("login");
+
+    // }
+}
+
+const tabs=document.querySelectorAll('.tab_btn');
+const all_content=document.querySelectorAll('.content');
+
+tabs.forEach((tab,index)=>{
+    tab.addEventListener('click',(e)=>{
+        tabs.forEach(tab=>{tab.classList.remove('active')});
+        tab.classList.add('active');
+        all_content.forEach(content=>{content.classList.remove('active')})
+        all_content[index].classList.add('active');
+    })
+
+})
 
 date=document.getElementById('date')
 date.valueAsDate=new Date();

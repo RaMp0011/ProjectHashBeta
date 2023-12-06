@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--favicon(that small icon above tab)-->
+
     <title>Let's Play</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/components/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/components/favicon-32x32.png">
@@ -21,7 +21,7 @@
 
 <body>
 
-    <!--navigation bar of page-->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="\index.html">
             <img src="\components\Heading(1).jpg" width="60" height="60" class="d-inline-block align-top" alt="">
@@ -81,68 +81,181 @@
             </div>
         </form>
     </div>
-    <div class="profile" id="profile" style="display: none;">
-          <div class="pfp">
-            <p id="username"></p>
-    </div>
-    <div class="dropbox">
-        <form id="gameform">
-            <p class="pops2" id="Message"></p>
-            <p class="pops3" id="Message2"></p>
-            <div class="dropdown">
-            <label for="play">Game</label>
-            <select id="play">
-                <option value="box cricket">Box Cricket</option>
-                <option value="cricket">Cricket</option>
-                <option value="football">Football</option>
-                <option value="basketball">Basketball</option>
-                <option value="cycling">Cycling</option>
-            </select>
+    <div class="profile" id="profile" style="display: none;" >
+  <div class="dropbox">
+      <form id="gameform">
+          <p class="pops2" id="Message"></p>
+          <p class="pops3" id="Message2"></p>
+          <div class="dropdown">
+          <label for="play">Game</label>
+          <select id="play">
+              <option value="BOX CRICKET">Box Cricket</option>
+              <option value="CRICKET">Cricket</option>
+              <option value="FOOTBALL">Football</option>
+              <option value="BASKETBALL">Basketball</option>
+              <option value="CYCLING">Cycling</option>
+          </select>
+          </div>
+          <div class="dropdown">
+          <label for="players">Required Players</label>
+          <select id="players">
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+              <option value=6>6</option>
+              <option value=7>7</option>
+              <option value=8>8</option>
+              <option value=9>9</option>
+              <option value=10>10</option>
+          </select>
+      </div>
+      <div class="dropdown">
+          <label for="location">Location</label>
+          <select id="location">
+              <option value="CHEMBUR">Chembur</option>
+              <option value="KURLA">Kurla</option>
+              <option value="GHATOPER">Ghatkoper</option>
+              <option value="DADAR">Dadar</option>
+              <option value="VASHI">Vashi</option>
+          </select>
+      </div>
+      <div class="dropdown">
+          <label for="date">Held On</label>
+          <input id="date" type="date">
+      </div>
+      <button type="submit" class="create" id="create" value=0>Create</button>
+         </form>
+      </div>
+      <div class="container">
+        <div class="tab_box">
+            <button class="tab_btn active">Home</button>
+            <button class="tab_btn">Scheduled</button>
+            <button class="tab_btn">Request</button>
+            <button class="tab_btn">Game</button>
+            <div class="line"></div>
+        </div>
+        <div class="content_box">
+            <div class="content active">
+                <p class='perinfo' id="name">Ayush Shukla</p>
+                <small>Phone</small>
+                <p class='perinfo' id="phone">7021169746</p>
+                <small>email</small>
+                <p class='perinfo' id="email">user@123</p>
+    
+               
             </div>
-            <div class="dropdown">
-            <label for="players">Required Players</label>
-            <select id="players">
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-                <option value=6>6</option>
-                <option value=7>7</option>
-                <option value=8>8</option>
-                <option value=9>9</option>
-                <option value=10>10</option>
-            </select>
+        
+        <div class="content">
+            
+                <h2>Scheduled</h2>
+                <p id="gamein">No game as been found</p>
+                <div id="infod" style="display: none;"> 
+                    <small>Game</small>
+                    <p id="gameI" class="info_detail">No game as been found</p>
+                    <small>Required Players</small>
+                    <p id="playersI" class="info_detail"></p>
+                    <small>Location</small>
+                    <p id="locationI" class="info_detail"></p>
+                    <small>Scheduled on</small>
+                    <p id="dateI" class="info_detail"></p>
+                    <button id="edit" class="edit">🪛Edit</button>
+                </div>
+            </div>
+        
+        <div class="content">
+            
+                <h2>Request</h2>
+                <p class="norequest" id="norequest">no request</p>
+                <div class="reqlist" id="reqlist1" style="display: none;">
+                <p id="rename1">Name</p>
+                <p id="phone1">phone</p>
+                <button class="butreq" id="accept1">✅</button>
+                <button class="butreq" id="reject1">❌</button>
+                </div>
+                <div class="reqlist" id="reqlist2" style="display: none;">
+                <p id="rename2">Name</p>
+                <p id="phone2">phone</p>
+                <button class="butreq" id="accept1">✅</button>
+                <button class="butreq" id="reject1">❌</button>
+                </div>
+                <div class="reqlist" id="reqlist3" style="display: none;">
+                <p id="rename3">Name</p>
+                <p id="phone3">phone</p>
+                <button class="butreq" id="accept3">✅</button>
+                <button class="butreq" id="reject3">❌</button>
+                </div>
+                <div class="reqlist" id="reqlist4" style="display: none;">
+                <p id="rename4">Name</p>
+                <p id="phone4">phone</p>
+                <button class="butreq" id="accept4">✅</button>
+                <button class="butreq" id="reject4">❌</button>
+                </div>
+                <div class="reqlist" id="reqlist5" style="display: none;">
+                <p id="rename5">Name</p>
+                <p id="phone5">phone</p>
+                <button class="butreq" id="accept5">✅</button>
+                <button class="butreq" id="reject5">❌</button>
+                </div>
+                <div class="reqlist" id="reqlist6" style="display: none;">
+                <p id="rename6">Name</p>
+                <p id="phone6">phone</p>
+                <button class="butreq" id="accept6">✅</button>
+                <button class="butreq" id="reject6">❌</button>
+                </div>
+            </div>
+        
+        <div class="content">
+           <p id="infocc"></p>
+        <div id="gamecc1" class="gamecc" style="display: none;">
+                <h2>Game</h2>
+                <small>Game</small>
+                <p id="gamek1"></p>
+                <small>Scheduled On</small>
+                <p id="schedule1"></p>
+                <small>Organizer</small>
+                <p id="organizer1"></p>
+                <small>Contact</small>
+                <p id="phone1"></p>
         </div>
-        <div class="dropdown">
-            <label for="location">Location</label>
-            <select id="location">
-                <option value="Chembur">Chembur</option>
-                <option value="Kurla">Kurla</option>
-                <option value="Ghatkoper">Ghatkoper</option>
-                <option value="Dadar">Dadar</option>
-                <option value="Vashi">Vashi</option>
-            </select>
+        <div id="gamecc1" class="gamecc" style="display: none;">
+                <h2>Game</h2>
+                <small>Game</small>
+                <p id="gamek2"></p>
+                <small>Scheduled On</small>
+                <p id="schedule2"></p>
+                <small>Organizer</small>
+                <p id="organizer2"></p>
+                <small>Contact</small>
+                <p id="phone2"></p>
         </div>
-        <div class="dropdown">
-            <label for="date">Held On</label>
-            <input id="date" type="date">
+        <div id="gamecc1"  class="gamecc" style="display: none;">
+                <h2>Game</h2>
+                <small>Game</small>
+                <p id="gamek3"></p>
+                <small>Scheduled On</small>
+                <p id="schedule3"></p>
+                <small>Organizer</small>
+                <p id="organizer3"></p>
+                <small>Contact</small>
+                <p id="phone3"></p>
         </div>
-        <button type="submit" class="create" id="create" value=0>Create</button>
-           </form>
+            </div>
         </div>
-        <div class="tophead">
-            <h4>Scheduled</h4>
-        <div class="info"> 
-            <p id="gameI">No game as been found</p>
-            <p id="playersI"></p>
-            <p id="locationI"></p>
-            <p id="dateI"></p>
-            <button id="edit" class="edit">🪛Edit</button>
-        </div>
-        <div>
-            <p>No game as been found</p></div>
-        </div>
+        
+          <!-- <h4>Scheduled</h4>
+      <div class="info"> 
+          <p id="gameI">No game as been found</p>
+          <p id="playersI"></p>
+          <p id="locationI"></p>
+          <p id="dateI"></p>
+          <button id="edit" class="edit">🪛Edit</button>
+      </div>
+      <div>
+          <p>No game as been found</p></div> -->
+      </div>
+    </div>
     <script src="login.js"></script>  
     <script src="search.js"></script>
 </body>
